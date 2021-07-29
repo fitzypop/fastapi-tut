@@ -1,0 +1,4 @@
+[MASTER]
+extension-pkg-whitelist=pydantic
+; Comma Separated List
+good-names:q
