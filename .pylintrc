@@ -2,3 +2,6 @@
 extension-pkg-whitelist=pydantic
 ; Comma Separated List
 good-names:q
+
+[FORMAT]
+max-line-length=125

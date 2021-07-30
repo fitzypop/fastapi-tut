@@ -17,8 +17,17 @@ async def read_items(
     repeat_at: Optional[time] = Body(None),
     process_after: Optional[timedelta] = Body(None),
 ):
-    start_process = start_datetime + process_after
-    duration = end_datetime - start_process
+    """Example endpoint, nothing special."""
+    start_process = (
+        start_datetime + process_after.resolution
+        if start_datetime and process_after
+        else None
+    )
+    duration = (
+        end_datetime - start_process.resolution
+        if end_datetime and start_process
+        else None
+    )
     return {
         "item_id": item_id,
         "start_datetime": start_datetime,

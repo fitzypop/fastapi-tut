@@ -3,7 +3,9 @@
 from typing import Optional
 
 from fastapi import FastAPI, Body
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
+
+# from pydantic import Field
 
 app = FastAPI()
 
@@ -46,6 +48,8 @@ app = FastAPI()
 
 
 class Item(BaseModel):
+    """Example of Item object."""
+
     name: str
     description: Optional[str] = None
     price: float
@@ -87,5 +91,6 @@ async def update_item(
         },
     ),
 ):
+    """Complex example of Body Examples."""
     results = {"item_id": item_id, "item": item}
     return results
