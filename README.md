@@ -17,9 +17,9 @@ Following the Offical Docs [here][1]
 - [x] Path Parameters and Numeric Validations
 - [x] Body - Multiple Parameters
 - [x] Body - Fields
-- [ ] Body - Nested Models
-- [ ] Declare Request Example Data
-- [ ] Extra Data Types
+- [x] Body - Nested Models
+- [x] Declare Request Example Data
+- [x] Extra Data Types
 - [ ] Cookie Parameters
 - [ ] Header Parameters
 - [ ] Response Model

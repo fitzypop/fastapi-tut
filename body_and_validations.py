@@ -3,7 +3,7 @@
 from typing import Any, Optional
 from fastapi import FastAPI, Path, Query
 from fastapi.param_functions import Body
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, HttpUrl
 
 # from dataclasses import dataclass
 # @dataclass
@@ -16,6 +16,13 @@ from pydantic import BaseModel, Field
 #     tax: Optional[float] = None
 
 
+class Image(BaseModel):
+    """Example of Image class."""
+
+    url: HttpUrl
+    name: str
+
+
 class Item(BaseModel):
     """Example of Request Body Object."""
 
@@ -25,7 +32,8 @@ class Item(BaseModel):
     )
     price: float = Field(..., gt=0, description="The price must be greater than zero")
     tax: Optional[float] = None
-    tags: list[str] = []
+    tags: set[str] = set()
+    imagea: Optional[list[Image]] = None
 
 
 class User(BaseModel):
@@ -118,3 +126,9 @@ async def update_item(
     """Doodlebop."""
     results = {"item_id": item_id, "item": item, "user": user, "importance": importance}
     return results
+
+
+@app.post("/index-weights/")
+async def create_index_weight(weights: dict[int, float]):
+    """FastApi will convert and validate the JSON keys to ints."""
+    return weights
