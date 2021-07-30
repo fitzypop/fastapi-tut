@@ -3,7 +3,7 @@
 from typing import Any, Optional
 from fastapi import FastAPI, Path, Query
 from fastapi.param_functions import Body
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 # from dataclasses import dataclass
 # @dataclass
@@ -20,9 +20,12 @@ class Item(BaseModel):
     """Example of Request Body Object."""
 
     name: str
-    price: float
-    description: Optional[str] = None
+    description: Optional[str] = Field(
+        None, title="The description of the item", max_length=300
+    )
+    price: float = Field(..., gt=0, description="The price must be greater than zero")
     tax: Optional[float] = None
+    tags: list[str] = []
 
 
 class User(BaseModel):
@@ -107,7 +110,11 @@ async def read_items(
 
 @app.put("/items/{item_id}")
 async def update_item(
-    item_id: int, item: Item, user: User, importance: int = Body(...)
+    item: Item,
+    user: User,
+    importance: int = Body(...),
+    item_id: int = Path(...),
 ):
+    """Doodlebop."""
     results = {"item_id": item_id, "item": item, "user": user, "importance": importance}
     return results

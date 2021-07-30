@@ -16,7 +16,7 @@ Following the Offical Docs [here][1]
 - [x] Query Parameter and String Validations
 - [x] Path Parameters and Numeric Validations
 - [x] Body - Multiple Parameters
-- [ ] Body - Fields
+- [x] Body - Fields
 - [ ] Body - Nested Models
 - [ ] Declare Request Example Data
 - [ ] Extra Data Types
