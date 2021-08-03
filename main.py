@@ -1,8 +1,9 @@
 """Main FastAPI File."""
 
-from typing import Optional
-from enum import Enum
 from dataclasses import dataclass
+from enum import Enum
+from typing import Optional
+
 from fastapi import FastAPI
 
 # from pydantic import BaseModel

@@ -4,7 +4,7 @@ from datetime import datetime, time, timedelta
 from typing import Optional
 from uuid import UUID
 
-from fastapi import FastAPI, Body
+from fastapi import Body, FastAPI
 
 app = FastAPI()
 

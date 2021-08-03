@@ -1,6 +1,7 @@
 """Request Body section of FastAPI Tutorial."""
 
 from typing import Any, Optional
+
 from fastapi import FastAPI, Path, Query
 from fastapi.param_functions import Body
 from pydantic import BaseModel, Field, HttpUrl

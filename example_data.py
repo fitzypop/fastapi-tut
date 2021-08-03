@@ -2,7 +2,7 @@
 
 from typing import Optional
 
-from fastapi import FastAPI, Body
+from fastapi import Body, FastAPI
 from pydantic import BaseModel
 
 # from pydantic import Field
